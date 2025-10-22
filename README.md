@@ -4,17 +4,17 @@ Welcome to the official website of our club! This platform serves as a central h
 
 ## 📂 Project Structure
 
-website/
+website/<br>
 ├── home.html # Homepage<br>
-├── about.html # About Us page
-├── individual_page.html # individual pages
-├── load.html 
-├── regi_event.html #registrantion form
-├── search.html # search page
-├── css/
-│ └── style.css # Custom styles
-│ └── styles.css # Custom styles
-├── images/ # Club images
+├── about.html # About Us page<br>
+├── individual_page.html # individual pages<br>
+├── load.html <br>
+├── regi_event.html #registrantion form<br>
+├── search.html # search page<br>
+├── css/<br>
+│ └── style.css # Custom styles<br>
+│ └── styles.css # Custom styles<br>
+├── images/ # Club images<br>
 
 
 ## 🚀 Features
