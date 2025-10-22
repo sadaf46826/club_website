@@ -5,7 +5,7 @@ Welcome to the official website of our club! This platform serves as a central h
 ## 📂 Project Structure
 
 website/
-├── home.html # Homepage
+├── home.html # Homepage<br>
 ├── about.html # About Us page
 ├── individual_page.html # individual pages
 ├── load.html 
