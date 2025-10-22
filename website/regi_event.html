@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <style>
+      /* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff5e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Registration Container */
+.registration-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 650px; /* Increased height to fit new field */
+    text-align: center;
+}
+
+/* Form Styling */
+h2 {
+    color: #e9a23b;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    margin: 8px 0 4px;
+    font-weight: bold;
+}
+
+input, select {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Submit Button */
+.register-btn {
+    padding: 12px;
+    background-color: #e9a23b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    margin-top: 50px; /* Adjusted to keep layout balanced */
+}
+
+.register-btn:hover {
+    background-color: #d1882b;
+}
+
+/* Success Message */
+.hidden {
+    display: none;
+}
+
+#success-message {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="registration-container">
+        <h2>Event Registration</h2>
+        <form id="registration-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" max="120" required> <!-- Added Age Field -->
+
+            <label for="event">Select Event</label>
+            <select id="event" name="event" required>
+                <option value="">-- Choose an Event --</option>
+                <option value="Meet the Author">Meet the Author: Arundhati Roy</option>
+                <option value="Poetry Night">Poetry Night</option>
+                <option value="Book Swap">Book Swap Event</option>
+            </select>
+
+            <button type="submit" class="register-btn">Register Now</button>
+        </form>
+
+        <!-- Success Message (Initially Hidden) -->
+        <p id="success-message" class="hidden">🎉 Successfully Registered!</p>
+    </div>
+
+<script>
+    document.getElementById("registration-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page reload
+
+        // Show success message
+        let successMessage = document.getElementById("success-message");
+        successMessage.classList.remove("hidden");
+
+        // Hide success message after 3 seconds
+        setTimeout(function() {
+            successMessage.classList.add("hidden");
+        }, 2000);
+
+        // Clear form fields
+        document.getElementById("registration-form").reset();
+    });
+</script>
+
+</body>
+</html>

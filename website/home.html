@@ -1,0 +1,143 @@
+<html>
+<head>
+ <title>Club Website</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header 1 -->
+  <header class="header1">
+
+    <div class="logo">
+      <img src="image/web.png" alt="Club Logo">
+    </div>
+
+    <div class="search-bar">
+      <a href="search.html">
+        <input type="text" id="searchInput" placeholder="Search for clubs...">
+      </a>
+    </div>
+
+    <div class="profile-container">
+      <img src="image/profile.jpg" alt="Profile" class="profile-icon" onclick="toggleDropdown()">
+      <!-- Dropdown menu -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="#">Profile</a>
+        <a href="#">Joined Clubs</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Header 2 -->
+  <header class="header2">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="search.html">Clubs</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="about.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Middle Section -->
+  <section class="intro">
+    <h1>ClubVerse</h1>
+    <b><p class="subtitle">Welcome to the world of Clubs</p>
+    <p class="aim">Our aim is to connect like-minded people and help clubs grow.</p>
+    <p class="slogan">"Connecting people, Creating Communities"</p></b>
+  </section>
+
+  <!-- Trending Clubs Section -->
+  <section class="trending-clubs">
+    <h2>Trending Clubs</h2>
+    <div class="club-grid">
+
+      <div class="club">
+        <div class="club-icon">
+          <img src="image/book.jpg" alt="Club 1">
+        </div>
+        <h3> Bookworms Haven</h3>
+        <p>For those who love to read and discuss books, from classics to contemporary works.</p>
+        <a href="individual_page.html">
+        <button>Join</button>
+        </a>
+      </div>
+
+      <div class="club">
+        <div class="club-icon">
+          <img src="image/art.jpeg" alt="Club 2">
+        </div>
+        <h3>ArtVenture</h3>
+        <p>A club for those who love to explore all forms of art, from painting to digital design.</p>
+        <button>Join</button>
+      </div>
+
+      <div class="club">
+        <div class="club-icon">
+          <img src="image/fit.jpeg" alt="Club 3">
+        </div>
+        <h3>FitFam</h3>
+        <p>A club focused on fitness, wellness, and friendly sports competitions.</p>
+        <button>Join</button>
+      </div>
+
+      <div class="club">
+        <div class="club-icon">
+          <img src="image/music.jpg" alt="Club 4">
+        </div>
+        <h3>Jam Junction</h3>
+        <p>A place for musicians and music lovers to explore different genres, create jams, and host performances.</p>
+        <button>Join</button>
+      </div>
+
+      <div class="club">
+        <div class="club-icon">
+          <img src="image/game.jpeg" alt="Club 4">
+        </div>
+        <h3>PixelPals</h3>
+        <p>A club for gamers to bond over their favorite video games, from casual mobile games to competitive eSports.</p>
+        <button>Join</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <ul>
+        <li><a href="about.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="search.html">Join Us</a></li>
+      </ul>
+      <p>&copy; 2025 Club Website. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+<script>
+  function toggleDropdown() {
+  let menu = document.getElementById("dropdownMenu");
+  if (menu) {
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  }
+}
+
+// Close dropdown if clicked outside
+window.onclick = function(event) {
+  if (!event.target.matches('.profile-icon')) {
+    document.getElementById("dropdownMenu").style.display = "none";
+  }
+}
+
+</script>
+
+</body>
+</html>

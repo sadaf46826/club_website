@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>Club Search</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Sidebar with Filters -->
+    <div class="sidebar">
+        <h4>Filters</h4>
+
+        <div class="filter-section">
+            <h4>Category</h4>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Technology"> Technology</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Art"> Art</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Music"> Music</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Sports"> Sports</label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Trending</h4>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Popular"> Popular</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="New"> New</label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Reviews</h4>
+            <label class="filter-option"><input type="checkbox" class="filter" value="★★★★★"> ★★★★★</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="★★★★☆"> ★★★★☆</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="★★★☆☆"> ★★★★☆</label>
+        </div>
+
+        <div class="filter-section">
+            <h4>Membership</h4>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Free"> Free</label>
+            <label class="filter-option"><input type="checkbox" class="filter" value="Premium"> Premium</label>
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for clubs...">
+        </div>
+
+        <div class="club-list" id="clubList">
+            <!-- Clubs will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script>
+        let clubs = [
+            { name: "Bookworms Haven", desc: "A club for book lovers.", category: "Art", trending: "Popular", reviews: "★★★★★", membership: "Free", img: "image/book.jpg" },
+            { name: "Number Ninjas", desc: "Explore data science projects.", category: "Technology", trending: "New", reviews: "★★★★☆", membership: "Premium", img: "image/ds.png" },
+            { name: "Snapshot Squad", desc: "Capture amazing moments.", category: "Art", trending: "Popular", reviews: "★★★★★", membership: "Free", img: "image/pic.jpeg" },
+            { name: "Jam Junction", desc: "For music enthusiasts.", category: "Music", trending: "New", reviews: "★★★☆☆", membership: "Premium", img: "image/music.jpg" },
+            { name: "FitFam", desc: "All about sports activities.", category: "Sports", trending: "Popular", reviews: "★★★☆☆", membership: "Free", img: "image/fit.jpeg" },
+            { name: "Checkmate Crew", desc: "Strategy and mind games.", category: "Sports", trending: "New", reviews: "★★★★★", membership: "Premium", img: "image/chess.png" },
+            { name: "Robotics world", desc: "Building future robots.", category: "Technology", trending: "Popular", reviews: "★★★★☆", membership: "Premium", img: "image/robo.jpg" },
+            { name: "PixelPals", desc: "E-sports and gaming discussions.", category: "Technology", trending: "New", reviews: "★★★★★", membership: "Free", img: "image/game.jpeg" },
+            { name: "Shakespeare's Circle", desc: "Drama and acting enthusiasts.", category: "Art", trending: "Popular", reviews: "★★★★☆", membership: "Premium", img: "image/drama.jpg" }
+        ];
+
+        let clubList = document.getElementById("clubList");
+
+        function loadClubs() {
+            clubs.forEach(club => {
+                let div = document.createElement("div");
+                div.className = "club";
+                div.dataset.category = club.category;
+                div.dataset.trending = club.trending;
+                div.dataset.reviews = club.reviews;
+                div.dataset.membership = club.membership;
+                div.innerHTML = `<img src="${club.img}" alt="Club Icon">
+                                 <div><strong>${club.name}</strong><p>${club.desc}</p></div>
+                                 <button class="join-btn">Join</button>`;
+                clubList.appendChild(div);
+            });
+        }
+
+        function filterClubs() {
+            let searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            let selectedFilters = [...document.querySelectorAll(".filter:checked")].map(cb => cb.value);
+
+            document.querySelectorAll(".club").forEach(club => {
+                let clubName = club.querySelector("strong").innerText.toLowerCase();
+                let matchesSearch = clubName.includes(searchQuery);
+                let matchesFilter = selectedFilters.length === 0 || selectedFilters.some(f => 
+                    club.dataset.category.includes(f) || 
+                    club.dataset.trending.includes(f) || 
+                    club.dataset.reviews.includes(f) || 
+                    club.dataset.membership.includes(f)
+                );
+
+                club.style.display = matchesSearch && matchesFilter ? "flex" : "none";
+            });
+        }
+
+        document.getElementById("searchInput").addEventListener("input", filterClubs);
+        document.querySelectorAll(".filter").forEach(filter => filter.addEventListener("change", filterClubs));
+
+        // Infinite Scroll Effect
+        window.onscroll = function() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                loadClubs();
+            }
+        };
+
+        loadClubs();
+    </script>
+
+</body>
+</html>

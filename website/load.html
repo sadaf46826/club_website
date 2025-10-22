@@ -1,0 +1,77 @@
+<html>
+<head>
+  <title>Animated Logo</title>
+  <style>
+    /* Body */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    /* Loading Screen */
+    .loading-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(251, 252, 203, 0.931);
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 1s ease-out;
+    }
+
+    /* Animated Logo */
+    .animated-logo {
+      width: 300px;
+      height: 300px;
+      background-image: url('image/web.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fadeIn 2s ease-in-out;
+      margin-right: 20px;
+    }
+
+    /* Fade-in animation for logo */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="animated-logo"></div>
+  </div>
+
+  <script>
+    // Simulate the loading process
+    window.onload = function() {
+      setTimeout(function() {
+        // Hide the loading screen after logo animation
+        document.getElementById('loading-screen').style.opacity = '0';
+        
+        // Redirect to homepage after the fade-out effect
+        setTimeout(function() {
+          window.location.href = "home.html";  
+        }, 1000);  // Duration of fade-out effect
+      }, 1500); // Duration of the logo animation
+    };
+  </script>
+
+</body>
+</html>

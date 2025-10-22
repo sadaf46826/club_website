@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Registration</title>
+  <style>
+    /* Body */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: #1C1C1C;
+      color: #F5F5DC;
+      height: 100vh;
+    }
+
+    /* Background Overlay */
+    .background {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Registration Card */
+    .registration-card {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: rgba(245, 245, 220, 0.95); /* Cream */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+      width: 80%;
+      max-width: 900px;
+      padding: 20px;
+      height: auto;
+      margin-top: 40px;
+    }
+
+    /* Form Section */
+    .form-section {
+      width: 100%;
+      padding: 15px;
+      color: #1C1C1C;
+      max-height: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 26px; /* Slightly reduced */
+      font-weight: bold;
+      color: #D4AF37;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="email"], input[type="date"], select, textarea, input[type="file"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 2px solid #D4AF37;
+      border-radius: 6px;
+      background: #F5F5F5;
+      color: #1C1C1C;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    /* Buttons */
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #D4AF37;
+      color: #1C1C1C;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #B29530;
+    }
+
+    .reset-btn {
+      background-color: #A9A9A9;
+      color: white;
+    }
+
+    .reset-btn:hover {
+      background-color: #808080;
+    }
+
+    /* Radio & Checkbox Styles */
+    .radio-group, .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .radio-group label, .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* File Upload */
+    .file-upload {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .file-upload input {
+      border: none;
+      padding: 0;
+    }
+
+    /* Terms Checkbox */
+    .terms {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="registration-card">
+      <!-- Form Section -->
+      <div class="form-section">
+        <h2>Register to Join the Club</h2>
+        
+        <form action="load.html" method="POST">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name">
+          
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email address">
+          
+          <label for="phone">Phone Number:</label>
+          <input type="text" id="phone" name="phone" pattern="\d{10}" placeholder="Enter your 10-digit phone number">
+          
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required>
+          
+          <!-- Gender Radio Buttons -->
+          <label>Gender:</label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="male" required> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+            <label><input type="radio" name="gender" value="prefer-not-to-say"> Prefer not to say</label>
+          </div>
+          
+          <!-- Preferred Clubs Checkbox -->
+          <label>Preferred Club(s):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="club-preferences" value="book"> Book Club</label>
+            <label><input type="checkbox" name="club-preferences" value="art"> Art Club</label>
+            <label><input type="checkbox" name="club-preferences" value="fitness"> Fitness Club</label>
+            <label><input type="checkbox" name="club-preferences" value="music"> Music Club</label>
+            <label><input type="checkbox" name="club-preferences" value="gaming"> Gaming Club</label>
+          </div>
+
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" placeholder="Enter your address (optional)"></textarea>
+          
+          <label for="reason">Why do you want to join?</label>
+          <textarea id="reason" name="reason" rows="3" placeholder="Share your reason for joining the club (optional)"></textarea>
+          
+          <label for="profile-pic">Upload Profile Picture:</label>
+          <div class="file-upload">
+            <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+          </div>
+          
+          <label class="terms">
+            <input type="checkbox" name="terms" required> I agree to the <a href="#" style="color: #B29530;">terms and conditions</a>
+          </label>
+          <button type="submit">Register</button>
+          <button type="reset" class="reset-btn">Reset</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
