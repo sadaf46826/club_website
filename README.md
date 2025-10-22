@@ -5,15 +5,16 @@ Welcome to the official website of our club! This platform serves as a central h
 ## 📂 Project Structure
 
 website/
-├── index.html # Homepage
+├── home.html # Homepage
 ├── about.html # About Us page
-├── events.html # Upcoming events
-├── contact.html # Contact information
+├── individual_page.html # individual pages
+├── load.html 
+├── regi_event.html #registrantion form
+├── search.html # search page
 ├── css/
 │ └── style.css # Custom styles
+│ └── styles.css # Custom styles
 ├── images/ # Club images
-└── js/
-└── script.js # JavaScript functionality
 
 
 ## 🚀 Features
